@@ -5,7 +5,7 @@ services:
     ports:
       - "80:5000"
     depends-on:
-      - mongo
+      mongo:
     environment:
       - MONGO_URI=mongodb://mongo:27017/usersdb
       - PORT=5000
