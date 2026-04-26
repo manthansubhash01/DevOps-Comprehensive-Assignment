@@ -9,6 +9,7 @@ const userRoutes = require("./routes/userRoutes");
 
 dotenv.config();
 connectDB();
+const__dirname = path.resolve();
 
 const app = express();
 
@@ -16,6 +17,12 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/users", userRoutes);
+
+app.use(express.static(path.join(__dirname,"dist")));
+
+app.get("*", (req,res) => {
+res.sendFile(path.join(__dirname,"dist","index.html"));
+});
 
 const PORT = process.env.PORT || 5000;
 
