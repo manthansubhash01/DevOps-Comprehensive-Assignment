@@ -4,7 +4,7 @@ services:
     container_name: app_container
     ports:
       - "80:5000"
-    depends-on:
+    depends_on:
       mongo:
     environment:
       - MONGO_URI=mongodb://mongo:27017/usersdb
